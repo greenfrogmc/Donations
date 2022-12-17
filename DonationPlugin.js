@@ -2,7 +2,7 @@ class DonationPlugin {
     constructor() {}
 
     getName() {
-        return "DonationPlugin" // your plugin name
+        return "DonationPlugin"
     }
 
     onLoad() {
