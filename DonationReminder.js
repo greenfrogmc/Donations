@@ -1,4 +1,4 @@
-class DonationPlugin {
+class DonationReminder {
     constructor() {}
 
     getName() {
@@ -24,4 +24,4 @@ class DonationPlugin {
     onInternalServerError(server, client, error) { }
 }
 
-module.exports = DonationPlugin;
+module.exports = DonationReminder;
