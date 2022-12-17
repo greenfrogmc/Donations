@@ -2,7 +2,7 @@ class DonationPlugin {
     constructor() {}
 
     getName() {
-        return "DonationPlugin"
+        return "DonationReminder"
     }
 
     onLoad() {
