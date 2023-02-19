@@ -1,7 +1,7 @@
 {
   "name": "donations",
   "main": "Donations.js",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "displayName": "Donations",
   "description": "A simple plugin that adds the annoying donation message to your server",
   "authors": [
