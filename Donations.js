@@ -14,27 +14,20 @@ const Logger = require("../../src/server/Logger");
 const yaml = require("js-yaml");
 const fs = require("fs");
 
+const messages = {
+	"en_US": "If you found this project useful, you can support it here: %donateLink%",
+	"fr_FR": "Si vous avez trouvé ce projet utile, vous pouvez le soutenir ici: %donateLink%",
+	"vi_VN": "Chào bạn! Nếu bạn muốn hỗ trợ GreenFrogMCBE, bạn có thể quyên góp tại: %donateLink%",
+	"lt_LT": "Jei šis projektas jums pasirodė naudingas, galite jį paremti čia: %donateLink%",
+	"uk_UA": "Якщо ви вважаєте цей проект корисним, ви можете підтримати його тут: %donateLink%",
+};
+
 module.exports = {
 	onLoad() {
 		const config = yaml.load(fs.readFileSync("config.yml", "utf8"));
 		const donateLink = "https://www.paypal.com/donate/?hosted_button_id=EMT6MHNNL3KBQ";
-		switch (config.lang) {
-			case "fr_FR":
-				Logger.log(`Donations > Si vous avez trouvé ce projet utile, vous pouvez le soutenir ici: ${donateLink}`);
-				break;
-			case "vi_VN":
-				Logger.log(`Donations > Chào bạn! Nếu bạn muốn hỗ trợ GreenFrogMCBE, bạn có thể quyên góp tại: ${donateLink}`);
-				break;
-			case "lt_LT":
-				Logger.log(`Donations > Jei šis projektas jums pasirodė naudingas, galite jį paremti čia: ${donateLink}`);
-				break;
-			case "uk_UA":
-				Logger.log(`Donations > Якщо ви вважаєте цей проект корисним, ви можете підтримати його тут: ${donateLink}`);
-				break;
-			default:
-				Logger.log(`Donations > If you found this project useful, you can support it here: ${donateLink}`);
-				break;
-		}
+		const message = messages[config.lang] || messages["en_US"];
+		Logger.log(`Donations > ${message.replace("%donateLink%", donateLink)}`);
 	},
 
 	onShutdown() {
