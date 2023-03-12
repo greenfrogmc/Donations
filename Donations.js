@@ -27,10 +27,10 @@ module.exports = {
 		const config = yaml.load(fs.readFileSync("config.yml", "utf8"));
 		const donateLink = "https://www.paypal.com/donate/?hosted_button_id=EMT6MHNNL3KBQ";
 		const message = messages[config.lang] || messages["en_US"];
-		Logger.log(`Donations > ${message.replace("%donateLink%", donateLink)}`);
+		Logger.info(`Donations > ${message.replace("%donateLink%", donateLink)}`);
 	},
 
 	onShutdown() {
-		Logger.log("Donations > Bye!");
+		Logger.info("Donations > Bye!");
 	},
 };
