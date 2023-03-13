@@ -32,9 +32,5 @@ module.exports = {
 
 	onShutdown() {
 		Logger.info("Donations > Bye!");
-	},
-
-	PlayerChatEvent(w, x, y, z) {
-		z.cancel()
 	}
 };
